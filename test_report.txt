@@ -1,0 +1,27 @@
+
+> react-typescript-starter@0.1.0 test
+> react-scripts test
+
+PASS src/App.test.tsx
+  ✓ renders the course name somewhere (31 ms)
+
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |    1.92 |        0 |    5.55 |    1.96 |                   
+ App.tsx             |     100 |      100 |     100 |     100 |                   
+ Board.tsx           |       0 |        0 |       0 |       0 | 7-36              
+ BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26             
+ Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8               
+ Pic.tsx             |       0 |        0 |       0 |       0 | 5-13              
+ RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                 
+ ResetButton.tsx     |       0 |      100 |       0 |       0 | 4                 
+ Square.tsx          |       0 |        0 |       0 |       0 | 7-11              
+ constants.ts        |       0 |      100 |     100 |       0 | 1                 
+ game.ts             |       0 |        0 |       0 |       0 | 1-29              
+---------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        1.834 s
+Ran all test suites.
