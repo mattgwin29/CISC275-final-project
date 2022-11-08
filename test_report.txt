@@ -3,19 +3,22 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (31 ms)
+  ✓ renders the course name somewhere (32 ms)
 
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    1.92 |        0 |    5.55 |    1.96 |                   
- src                  |    1.92 |        0 |    5.55 |    1.96 |                   
+All files             |    1.28 |        0 |    3.84 |    1.31 |                   
+ src                  |    1.28 |        0 |    3.84 |    1.31 |                   
   App.tsx             |     100 |      100 |     100 |     100 |                   
+  BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26             
   Board.tsx           |       0 |        0 |       0 |       0 | 7-36              
   BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26             
   Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8               
   Pic.tsx             |       0 |        0 |       0 |       0 | 5-13              
+  PieceBank.tsx       |       0 |        0 |       0 |       0 | 7-36              
   RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                 
+  Rectangle.tsx       |       0 |        0 |       0 |       0 | 7-11              
   ResetButton.tsx     |       0 |      100 |       0 |       0 | 4                 
   Square.tsx          |       0 |        0 |       0 |       0 | 7-11              
   constants.ts        |       0 |      100 |     100 |       0 | 1                 
@@ -26,5 +29,5 @@ All files             |    1.92 |        0 |    5.55 |    1.96 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        1.859 s
+Time:        2.002 s
 Ran all test suites.
