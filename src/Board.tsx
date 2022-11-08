@@ -43,7 +43,7 @@ const Board: React.FC<BoardProps> = (props) => {
                     flexWrap: "wrap"
                 }}
             >
-                {squares}
+                {squares[0]}
             </div>
         </DndProvider>
     );
