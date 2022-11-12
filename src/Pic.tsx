@@ -1,9 +1,23 @@
-import React, { Fragment } from "react";
+import React, { CSSProperties, FC, Fragment, ReactNode } from "react";
 import { useDrag } from "react-dnd";
 import { ItemTypes } from "./constants";
+import type { XYCoord } from "react-dnd";
 
-const Pic: React.FC = () => {
-    const [{ isDragging }, drag] = useDrag({
+export interface BoxProps {
+    left: number;
+    top: number;
+}
+
+const styleC: CSSProperties = {
+    height: "5rem",
+    position: "absolute",
+    width: "5rem",
+    color: "white",
+    padding: "1rem"
+};
+
+const Pic: FC<BoxProps> = ({ left, top }) => {
+    const [isDragging, drag] = useDrag({
         item: { type: ItemTypes.PIC },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging
@@ -11,25 +25,16 @@ const Pic: React.FC = () => {
     });
 
     return (
-        <Fragment>
-            <div
-                ref={drag}
-                style={{
-                    opacity: isDragging ? 1 : 0.5,
-                    fontSize: 50,
-                    fontWeight: "bold",
-                    cursor: "move",
-                    textAlign: "center"
-                }}
-            >
-                {/*♘*/}
-                <img
-                    src={require("./bosun_tally.jpg")}
-                    width="80"
-                    height="80"
-                />
-            </div>
-        </Fragment>
+        <div
+            ref={drag}
+            style={{
+                ...styleC,
+                opacity: isDragging ? 1 : 0.5,
+                backgroundColor: "red",
+                top: top + "px",
+                left: left + "px"
+            }}
+        ></div>
     );
 };
 
