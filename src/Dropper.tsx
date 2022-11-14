@@ -6,7 +6,7 @@ import { ItemTypes } from "./constants";
 import type { DragItem } from "./interfaces/test";
 
 const style: CSSProperties = {
-    height: "30rem",
+    height: "20rem",
     width: "50rem",
     marginRight: "1.5rem",
     marginBottom: "1.5rem",
@@ -39,8 +39,6 @@ export const Dropper: React.FC = () => {
     let backgroundColor = "#222";
     if (isActive) {
         backgroundColor = "darkgreen";
-    } else if (canDrop) {
-        backgroundColor = "darkkhaki";
     }
 
     return (
@@ -50,7 +48,6 @@ export const Dropper: React.FC = () => {
             data-testid="dustbin"
         >
             <Pic top={top} left={left} />
-            <Pic top={top + 20} left={left + 20} />
         </div>
     );
 };
