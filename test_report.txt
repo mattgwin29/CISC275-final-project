@@ -3,23 +3,21 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (32 ms)
+  ✓ renders the course name somewhere (45 ms)
 
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    1.28 |        0 |    3.84 |    1.31 |                   
- src                  |    1.28 |        0 |    3.84 |    1.31 |                   
+All files             |    1.51 |        0 |    4.34 |    1.51 |                   
+ src                  |    1.51 |        0 |    4.34 |    1.51 |                   
   App.tsx             |     100 |      100 |     100 |     100 |                   
   BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26             
-  Board.tsx           |       0 |        0 |       0 |       0 | 7-36              
   BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26             
+  Dropper.tsx         |       0 |        0 |       0 |       0 | 8-48              
   Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8               
-  Pic.tsx             |       0 |        0 |       0 |       0 | 5-13              
-  PieceBank.tsx       |       0 |        0 |       0 |       0 | 7-36              
+  Pic.tsx             |       0 |        0 |       0 |       0 | 10-26             
   RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                 
   Rectangle.tsx       |       0 |        0 |       0 |       0 | 7-11              
-  ResetButton.tsx     |       0 |      100 |       0 |       0 | 4                 
   Square.tsx          |       0 |        0 |       0 |       0 | 7-11              
   constants.ts        |       0 |      100 |     100 |       0 | 1                 
   game.ts             |       0 |        0 |       0 |       0 | 1-29              
@@ -29,5 +27,5 @@ All files             |    1.28 |        0 |    3.84 |    1.31 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        1.996 s
+Time:        2.559 s
 Ran all test suites.
