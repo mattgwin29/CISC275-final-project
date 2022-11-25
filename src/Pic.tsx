@@ -5,6 +5,7 @@ import { ItemTypes } from "./constants";
 export interface BoxProps {
     left: number;
     top: number;
+    id: number;
 }
 
 const styleC: CSSProperties = {
@@ -15,12 +16,9 @@ const styleC: CSSProperties = {
     padding: "1rem"
 };
 
-const Pic: FC<BoxProps> = ({ left, top }) => {
-    const [isDragging, drag] = useDrag({
-        item: { type: ItemTypes.PIC },
-        collect: (monitor) => ({
-            isDragging: !!monitor.isDragging
-        })
+const Pic: FC<BoxProps> = ({ id, left, top }) => {
+    const [, drag] = useDrag({
+        item: { type: ItemTypes.PIC, id: id, left: left, top: top }
     });
 
     return (
@@ -28,7 +26,6 @@ const Pic: FC<BoxProps> = ({ left, top }) => {
             ref={drag}
             style={{
                 ...styleC,
-                opacity: isDragging ? 1 : 0.5,
                 backgroundColor: "red",
                 top: top + "px",
                 left: left + "px"

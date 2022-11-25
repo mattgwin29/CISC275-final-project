@@ -6,6 +6,21 @@ import { render } from "react-dom";
 import { Dropper } from "./Dropper";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { Coord } from "./interfaces/coord";
+
+const pieces: Coord[] = [
+    {
+        id: 1,
+        top: 150,
+        left: 100
+    },
+    {
+        id: 2,
+        top: 150,
+        left: 500
+    }
+];
+//Import the list of pieces as something and put it into dropper
 
 function App() {
     return (
@@ -14,7 +29,7 @@ function App() {
                 <p>Zachary England</p>
                 <p>Blair Felker</p>
                 <p>Matt Gwin</p>
-                <Dropper />
+                <Dropper pieceInfo={pieces} />
             </DndProvider>
         </div>
     );

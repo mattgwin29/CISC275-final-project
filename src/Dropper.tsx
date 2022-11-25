@@ -3,8 +3,10 @@ import type { CSSProperties, FC } from "react";
 import { useDrop, XYCoord } from "react-dnd";
 import Pic from "./Pic";
 import { ItemTypes } from "./constants";
-import { Button } from "react-bootstrap";
-import { Piece } from "./interfaces/piece";
+
+type DropperProps = {
+    pieceInfo: Coord[];
+};
 
 const style: CSSProperties = {
     height: "20rem",
@@ -16,33 +18,50 @@ const style: CSSProperties = {
     textAlign: "center",
     fontSize: "1rem",
     lineHeight: "normal",
-    float: "left"
+    float: "left",
+    backgroundColor: "black"
 };
 
-const PieceBank: Piece[] = [
-    {
-        id: "F",
-        angle: 0,
-        width: 100,
-        height: 100,
-        top: 150,
-        left: 100,
-        onBoard: false,
-        reflected: false,
-        image: "./src/images/F.png"
+/*
+const renderPiece = (i: number, top: number, left: number) => {
+    //const x = i * 200;
+    //const y = 150;
+    return <Pic id={i} left={left} top={top} />;
+};*/
+//Run this in a loop to make pieces with unique ids
+
+type Coord = {
+    id: number;
+    top: number;
+    left: number;
+};
+
+export const Dropper: FC<DropperProps> = (props) => {
+    //const pics = [];
+    //const [top, setTop] = useState<number>(150);
+    //const [left, setLeft] = useState<number>(100);
+    const [pieces, setPieces] = useState<Coord[]>(props.pieceInfo);
+
+    function movePiece(id: number, left: number, top: number): void {
+        const pieces2 = pieces.map(
+            (cor: Coord): Coord =>
+                cor.id === id ? { ...cor, top: top, left: left } : cor
+        );
+        setPieces(pieces2);
     }
-];
 
-export const Dropper: FC = () => {
-    const [top, setTop] = useState<number>(150);
-    const [left, setLeft] = useState<number>(100);
-
-    const [{ canDrop, isOver }, drop] = useDrop({
+    const [, drop] = useDrop({
         accept: ItemTypes.PIC,
-        drop: (item, monitor) => {
+        drop: (
+            item: { type: string; id: number; top: number; left: number },
+            monitor
+        ) => {
             const delta = monitor.getDifferenceFromInitialOffset() as XYCoord;
-            setLeft(left + delta.x);
-            setTop(top + delta.y);
+            const ileft = item.left + delta.x;
+            const itop = item.top + delta.y;
+            movePiece(item.id, ileft, itop);
+            //setLeft(left + delta.x);
+            //setTop(top + delta.y);
         },
         collect: (monitor) => ({
             isOver: monitor.isOver(),
@@ -50,24 +69,26 @@ export const Dropper: FC = () => {
         })
     });
 
-    const isActive = canDrop && isOver;
+    /*const isActive = canDrop && isOver;
     let backgroundColor = "#222";
     if (isActive) {
         backgroundColor = "darkgreen";
-    }
-
+    }*/
+    /*
     function resetPiece() {
         setTop(150);
         setLeft(100);
-    }
+    }*/
     return (
-        <div
-            ref={drop}
-            style={{ ...style, backgroundColor }}
-            data-testid="dustbin"
-        >
-            <Button onClick={resetPiece}>Reset</Button>
-            <Pic top={top} left={left} />
+        <div ref={drop} style={{ ...style }} data-testid="dustbin">
+            {pieces.map((coord: Coord) => {
+                return (
+                    <div key={coord.id}>
+                        <Pic id={coord.id} top={coord.top} left={coord.left} />
+                    </div>
+                );
+            })}
         </div>
     );
 };
+//put {pics} in the div
