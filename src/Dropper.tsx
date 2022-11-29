@@ -45,7 +45,19 @@ export const Dropper: FC = () => {
     //console.log("test");
     //box pos left
     //box pos width
-    const [PieceBank, setPieceBank] = useState<Piece[]>([]);
+    const [PieceBank, setPieceBank] = useState<Piece[]>([
+        {
+            id: "F",
+            angle: 0,
+            width: 100,
+            height: 100,
+            top: 150,
+            left: 100,
+            onBoard: false,
+            reflected: false,
+            image: "./Assets/Images/" + "F" + ".png"
+        }
+    ]);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function reflectPiece(reflId: string) {
         const newBank: Piece[] = PieceBank.map(
@@ -117,7 +129,7 @@ export const Dropper: FC = () => {
             <Button onClick={resetPieces}>Reset</Button>
             {PieceBank.map((p: Piece) => {
                 return (
-                    <div key={p.id}>
+                    <div key={p.id} data-testid={p.id}>
                         <Pic
                             id={p.id}
                             top={p.top}
