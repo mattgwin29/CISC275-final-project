@@ -8,12 +8,12 @@ PASS src/App.test.tsx
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    1.23 |        0 |    3.12 |    1.23 |                   
- src                  |    1.23 |        0 |    3.12 |    1.23 |                   
+All files             |    1.13 |        0 |    2.94 |    1.13 |                   
+ src                  |    1.13 |        0 |    2.94 |    1.13 |                   
   App.tsx             |     100 |      100 |     100 |     100 |                   
   BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26             
   BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26             
-  Dropper.tsx         |       0 |        0 |       0 |       0 | 9-119             
+  Dropper.tsx         |       0 |        0 |       0 |       0 | 9-165             
   Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8               
   Pic.tsx             |       0 |        0 |       0 |       0 | 11-26             
   RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                 
@@ -28,5 +28,5 @@ All files             |    1.23 |        0 |    3.12 |    1.23 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.037 s
+Time:        1.903 s
 Ran all test suites.
