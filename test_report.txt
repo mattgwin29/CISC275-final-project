@@ -3,21 +3,22 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (32 ms)
+  ✓ renders the course name somewhere (31 ms)
 
 ----------------------|---------|----------|---------|---------|-------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ----------------------|---------|----------|---------|---------|-------------------
-All files             |    1.36 |        0 |    3.22 |    1.36 |                   
- src                  |    1.36 |        0 |    3.22 |    1.36 |                   
+All files             |    1.23 |        0 |    3.12 |    1.23 |                   
+ src                  |    1.23 |        0 |    3.12 |    1.23 |                   
   App.tsx             |     100 |      100 |     100 |     100 |                   
   BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26             
   BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26             
-  Dropper.tsx         |       0 |        0 |       0 |       0 | 9-144             
+  Dropper.tsx         |       0 |        0 |       0 |       0 | 9-119             
   Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8               
   Pic.tsx             |       0 |        0 |       0 |       0 | 11-26             
   RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                 
   Rectangle.tsx       |       0 |        0 |       0 |       0 | 7-11              
+  RenderPic.tsx       |       0 |        0 |       0 |       0 | 11-23             
   Square.tsx          |       0 |        0 |       0 |       0 | 7-11              
   constants.ts        |       0 |      100 |     100 |       0 | 1                 
   game.ts             |       0 |        0 |       0 |       0 | 1-29              
@@ -27,5 +28,5 @@ All files             |    1.36 |        0 |    3.22 |    1.36 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.026 s
+Time:        2.037 s
 Ran all test suites.
