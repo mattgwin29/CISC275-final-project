@@ -651,12 +651,12 @@ PASS src/App.test.tsx
 ----------------------|---------|----------|---------|---------|------------------------------
 File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s            
 ----------------------|---------|----------|---------|---------|------------------------------
-All files             |   14.43 |        0 |    7.89 |   14.43 |                              
- src                  |   14.43 |        0 |    7.89 |   14.43 |                              
+All files             |   14.28 |        0 |    7.69 |   14.28 |                              
+ src                  |   14.28 |        0 |    7.69 |   14.28 |                              
   App.tsx             |     100 |      100 |     100 |     100 |                              
   BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26                        
   BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26                        
-  Dropper.tsx         |   26.31 |        0 |   11.11 |   26.31 | 85-86,92-102,109-158,167-191 
+  Dropper.tsx         |   25.64 |        0 |   10.52 |   25.64 | 85-86,92-102,109-158,167-194 
   Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8                          
   Pic.tsx             |   33.33 |        0 |       0 |   33.33 | 22-29                        
   RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                            
@@ -672,5 +672,5 @@ All files             |   14.43 |        0 |    7.89 |   14.43 |
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       3 failed, 1 passed, 4 total
 Snapshots:   0 total
-Time:        2.953 s
+Time:        3.141 s
 Ran all test suites.
