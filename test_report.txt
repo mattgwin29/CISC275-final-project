@@ -47,7 +47,7 @@ FAIL src/Dropper.test.tsx
           at useDragDropManager (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
           at useDropTargetMonitor (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
           at useDrop (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:140:29)
+          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:155:29)
           at renderWithHooks (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
           at mountIndeterminateComponent (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
           at beginWork (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -215,7 +215,7 @@ FAIL src/Dropper.test.tsx
           at useDragDropManager (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
           at useDropTargetMonitor (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
           at useDrop (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:140:29)
+          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:155:29)
           at renderWithHooks (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
           at mountIndeterminateComponent (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
           at beginWork (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -383,7 +383,7 @@ FAIL src/Dropper.test.tsx
           at useDragDropManager (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
           at useDropTargetMonitor (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
           at useDrop (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:140:29)
+          at Dropper (/home/runner/work/CISC275-final-project/CISC275-final-project/src/Dropper.tsx:155:29)
           at renderWithHooks (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
           at mountIndeterminateComponent (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
           at beginWork (/home/runner/work/CISC275-final-project/CISC275-final-project/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -513,19 +513,19 @@ FAIL src/Dropper.test.tsx
 
     Invariant Violation: Expected drag drop context
 
-      138 |     }
-      139 |
-    > 140 |     const [, drop] = useDrop({
+      153 |     }
+      154 |
+    > 155 |     const [, drop] = useDrop({
           |                             ^
-      141 |         accept: ItemTypes.PIC,
-      142 |         drop: (
-      143 |             item: { type: string; id: string; top: number; left: number },
+      156 |         accept: ItemTypes.PIC,
+      157 |         drop: (
+      158 |             item: { type: string; id: string; top: number; left: number },
 
       at invariant (node_modules/@react-dnd/invariant/src/index.ts:28:15)
       at useDragDropManager (node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
       at useDropTargetMonitor (node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
       at useDrop (node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-      at Dropper (src/Dropper.tsx:140:29)
+      at Dropper (src/Dropper.tsx:155:29)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -559,19 +559,19 @@ FAIL src/Dropper.test.tsx
 
     Invariant Violation: Expected drag drop context
 
-      138 |     }
-      139 |
-    > 140 |     const [, drop] = useDrop({
+      153 |     }
+      154 |
+    > 155 |     const [, drop] = useDrop({
           |                             ^
-      141 |         accept: ItemTypes.PIC,
-      142 |         drop: (
-      143 |             item: { type: string; id: string; top: number; left: number },
+      156 |         accept: ItemTypes.PIC,
+      157 |         drop: (
+      158 |             item: { type: string; id: string; top: number; left: number },
 
       at invariant (node_modules/@react-dnd/invariant/src/index.ts:28:15)
       at useDragDropManager (node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
       at useDropTargetMonitor (node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
       at useDrop (node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-      at Dropper (src/Dropper.tsx:140:29)
+      at Dropper (src/Dropper.tsx:155:29)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -605,19 +605,19 @@ FAIL src/Dropper.test.tsx
 
     Invariant Violation: Expected drag drop context
 
-      138 |     }
-      139 |
-    > 140 |     const [, drop] = useDrop({
+      153 |     }
+      154 |
+    > 155 |     const [, drop] = useDrop({
           |                             ^
-      141 |         accept: ItemTypes.PIC,
-      142 |         drop: (
-      143 |             item: { type: string; id: string; top: number; left: number },
+      156 |         accept: ItemTypes.PIC,
+      157 |         drop: (
+      158 |             item: { type: string; id: string; top: number; left: number },
 
       at invariant (node_modules/@react-dnd/invariant/src/index.ts:28:15)
       at useDragDropManager (node_modules/react-dnd/dist/cjs/hooks/useDragDropManager.js:21:28)
       at useDropTargetMonitor (node_modules/react-dnd/dist/cjs/hooks/internal/drop.js:34:60)
       at useDrop (node_modules/react-dnd/dist/cjs/hooks/useDrop.js:39:62)
-      at Dropper (src/Dropper.tsx:140:29)
+      at Dropper (src/Dropper.tsx:155:29)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
@@ -648,29 +648,29 @@ FAIL src/Dropper.test.tsx
       at Object.<anonymous> (src/Dropper.test.tsx:7:15)
 
 PASS src/App.test.tsx
-----------------------|---------|----------|---------|---------|----------------------
-File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
-----------------------|---------|----------|---------|---------|----------------------
-All files             |    14.6 |        0 |    8.82 |    14.6 |                      
- src                  |    14.6 |        0 |    8.82 |    14.6 |                      
-  App.tsx             |     100 |      100 |     100 |     100 |                      
-  BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26                
-  BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26                
-  Dropper.tsx         |      30 |        0 |   14.28 |      30 | 85-86,92-137,146-166 
-  Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8                  
-  Pic.tsx             |   33.33 |        0 |       0 |   33.33 | 21-28                
-  RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                    
-  Rectangle.tsx       |       0 |        0 |       0 |       0 | 7-11                 
-  RenderPic.tsx       |       0 |        0 |       0 |       0 | 11-23                
-  Square.tsx          |       0 |        0 |       0 |       0 | 7-11                 
-  constants.ts        |     100 |      100 |     100 |     100 |                      
-  game.ts             |       0 |        0 |       0 |       0 | 1-29                 
- src/interfaces       |       0 |        0 |       0 |       0 |                      
-  piece.ts            |       0 |        0 |       0 |       0 |                      
-----------------------|---------|----------|---------|---------|----------------------
+----------------------|---------|----------|---------|---------|-----------------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s           
+----------------------|---------|----------|---------|---------|-----------------------------
+All files             |   14.73 |        0 |     8.1 |   14.73 |                             
+ src                  |   14.73 |        0 |     8.1 |   14.73 |                             
+  App.tsx             |     100 |      100 |     100 |     100 |                             
+  BankRectangle.tsx   |       0 |        0 |       0 |       0 | 13-26                       
+  BoardSquare.tsx     |       0 |        0 |       0 |       0 | 13-26                       
+  Dropper.tsx         |   27.77 |        0 |   11.76 |   27.77 | 85-86,92-96,103-152,161-185 
+  Overlay.tsx         |       0 |      100 |       0 |       0 | 7-8                         
+  Pic.tsx             |   33.33 |        0 |       0 |   33.33 | 22-29                       
+  RandomizeButton.tsx |       0 |      100 |       0 |       0 | 4                           
+  Rectangle.tsx       |       0 |        0 |       0 |       0 | 7-11                        
+  RenderPic.tsx       |       0 |        0 |       0 |       0 | 11-23                       
+  Square.tsx          |       0 |        0 |       0 |       0 | 7-11                        
+  constants.ts        |     100 |      100 |     100 |     100 |                             
+  game.ts             |       0 |        0 |       0 |       0 | 1-29                        
+ src/interfaces       |       0 |        0 |       0 |       0 |                             
+  piece.ts            |       0 |        0 |       0 |       0 |                             
+----------------------|---------|----------|---------|---------|-----------------------------
 
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       3 failed, 1 passed, 4 total
 Snapshots:   0 total
-Time:        3.726 s
+Time:        3.019 s
 Ran all test suites.
