@@ -183,6 +183,9 @@ export const Dropper: FC = () => {
             <Button onClick={() => anglePiece(selected)}>
                 Rotate Last Piece
             </Button>
+            <Button onClick={() => reflectPiece(selected)}>
+                Reflect Last Piece
+            </Button>
             <div>
                 {" "}
                 <img src={require(`${solutionImage}`)} />
