@@ -61,6 +61,11 @@ export const Dropper: FC = () => {
         "Z"
     ];
 
+    const pageWidth = document.documentElement.scrollWidth;
+    const pageHeight = document.documentElement.scrollHeight;
+    console.log(pageWidth);
+    console.log(pageHeight);
+
     const pieces: Piece[] = p.map(
         (s: string): Piece => ({
             id: s,
@@ -68,7 +73,7 @@ export const Dropper: FC = () => {
             width: 100,
             height: 100,
             top: 400,
-            left: 200,
+            left: 0,
             onBoard: false,
             reflected: false,
             image: "./Assets/Images/" + s + ".png"
@@ -199,6 +204,8 @@ export const Dropper: FC = () => {
                             left={p.left}
                             image={p.image}
                             angle={p.angle}
+                            width={p.width}
+                            height={p.height}
                         />
                     </div>
                 );
