@@ -96,8 +96,8 @@ export const Dropper: FC = () => {
         const picBank: Piece[] = newBank.map(
             (p: Piece): Piece =>
                 p.reflected
-                    ? { ...p, image: "./Assets/Images/" + p.id + ".png" }
-                    : { ...p, image: "./Assets/Images/" + p.id + "2.png" }
+                    ? { ...p, image: "./Assets/Images/" + p.id + "2.png" }
+                    : { ...p, image: "./Assets/Images/" + p.id + ".png" }
         );
         setPieceBank(picBank);
     }
@@ -152,7 +152,9 @@ export const Dropper: FC = () => {
                 ...piece,
                 top: 440,
                 left: 220,
-                angle: 0
+                angle: 0,
+                reflected: false,
+                image: "./Assets/Images/" + piece.id + ".png"
             })
         );
         setPieceBank(newPieces);
