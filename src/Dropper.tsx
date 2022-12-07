@@ -5,6 +5,7 @@ import Pic from "./Pic";
 import { ItemTypes } from "./constants";
 import { Button } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
+import { TupleType } from "typescript";
 
 const style: CSSProperties = {
     height: "35rem",
@@ -66,20 +67,44 @@ export const Dropper: FC = () => {
     console.log(pageWidth);
     console.log(pageHeight);
 
+    const xLoc = 0;
+    const yLoc = 100;
+
     const pieces: Piece[] = p.map(
         (s: string): Piece => ({
             id: s,
             angle: 0,
             width: 100,
             height: 100,
-            top: 400,
-            left: 0,
+            top: yLoc,
+            left: xLoc,
             onBoard: false,
             reflected: false,
             image: "./Assets/Images/" + s + ".png"
         })
     );
+    ////////
+    function getImageDimensions(filepath: string): number[] {
+        console.log(filepath);
+        const img = new Image();
+        img.src = filepath;
+        const h = img.height;
+        const w = img.width;
+        return [h, w];
+    }
 
+    function getImageDimensionsById(id: string): number[] {
+        console.log(id + ".png");
+        const img = document.getElementById(id);
+        //or however you get a handle to the IMG
+        const w = img != null ? img.clientWidth : 0;
+        const h = img != null ? img.clientHeight : 0;
+        return [h, w];
+    }
+    pieces.forEach((p) => console.log(getImageDimensionsById(p.id))); //this works, but only after they exist
+    //pieces.forEach((p) => console.log(getImageDimensions(p.image)));
+
+    //////////
     const solutions: string[] = ["3x20", "4x15", "5x12", "6x10"];
 
     const [solutionImage, setSolutionImage] = useState<string>(
@@ -180,6 +205,7 @@ export const Dropper: FC = () => {
             canDrop: monitor.canDrop()
         })
     });
+
     return (
         <div ref={drop} style={{ ...style }} id="dustbin" data-testid="dustbin">
             <header>Current Puzzle = {solutionImage.substring(19, 23)}</header>
@@ -197,7 +223,7 @@ export const Dropper: FC = () => {
             </div>
             {PieceBank.map((p: Piece) => {
                 return (
-                    <div key={p.id} data-testid="pieces">
+                    <div key={p.id} data-testid="pieces" id={p.id}>
                         <Pic
                             id={p.id}
                             top={p.top}
