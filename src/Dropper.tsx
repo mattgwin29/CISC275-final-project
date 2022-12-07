@@ -3,7 +3,7 @@ import type { CSSProperties, FC } from "react";
 import { useDrop, XYCoord } from "react-dnd";
 import Pic from "./Pic";
 import { ItemTypes } from "./constants";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
 
 const style: CSSProperties = {
@@ -24,6 +24,10 @@ const style: CSSProperties = {
     borderStyle: "solid",
     borderWidth: "10px",
     borderColor: "red"
+};
+const styleI: CSSProperties = {
+    height: "100px",
+    width: "100px"
 };
 /*
 addToBank("F");
@@ -162,7 +166,13 @@ export const Dropper: FC = () => {
         );
         setPieceBank(newPieces);
     }
-
+    //Scale of Pieces because yeah scale exists wow amazing here is scale
+    const [scale, setScale] = useState<string>("100");
+    const scaleNum = parseInt(scale) / 100 || 0;
+    function updateScale(event: React.ChangeEvent<HTMLInputElement>) {
+        setScale(event.target.value);
+    }
+    //Function that is called on change
     const [, drop] = useDrop({
         accept: ItemTypes.PIC,
         drop: (
@@ -181,35 +191,54 @@ export const Dropper: FC = () => {
         })
     });
     return (
-        <div ref={drop} style={{ ...style }} id="dustbin" data-testid="dustbin">
-            <header>Current Puzzle = {solutionImage.substring(19, 23)}</header>
-            <Button onClick={setRandomPuzzle}>Randomize Puzzle</Button>
-            <Button onClick={resetPieces}>Reset</Button>
-            <Button onClick={() => anglePiece(selected)}>
-                Rotate Last Piece
-            </Button>
-            <Button onClick={() => reflectPiece(selected)}>
-                Reflect Last Piece
-            </Button>
-            <div>
-                {" "}
-                <img src={require(`${solutionImage}`)} />
-            </div>
-            {PieceBank.map((p: Piece) => {
-                return (
-                    <div key={p.id} data-testid="pieces">
-                        <Pic
-                            id={p.id}
-                            top={p.top}
-                            left={p.left}
-                            image={p.image}
-                            angle={p.angle}
-                            width={p.width}
-                            height={p.height}
+        <>
+            <div
+                ref={drop}
+                style={{ ...style }}
+                id="dustbin"
+                data-testid="dustbin"
+            >
+                <header>
+                    Current Puzzle = {solutionImage.substring(19, 23)}
+                </header>
+                <Button onClick={setRandomPuzzle}>Randomize Puzzle</Button>
+                <Button onClick={resetPieces}>Reset</Button>
+                <Button onClick={() => anglePiece(selected)}>
+                    Rotate Last Piece
+                </Button>
+                <Button onClick={() => reflectPiece(selected)}>
+                    Reflect Last Piece
+                </Button>
+                <div style={styleI}>
+                    <Form.Group controlId="scaleTime">
+                        <Form.Label>Scale %</Form.Label>
+                        <Form.Control
+                            type="number"
+                            value={scale}
+                            onChange={updateScale}
                         />
-                    </div>
-                );
-            })}
-        </div>
+                    </Form.Group>
+                </div>
+                <div>
+                    {" "}
+                    <img src={require(`${solutionImage}`)} />
+                </div>
+                {PieceBank.map((p: Piece) => {
+                    return (
+                        <div key={p.id} data-testid="pieces">
+                            <Pic
+                                id={p.id}
+                                top={p.top}
+                                left={p.left}
+                                image={p.image}
+                                angle={p.angle}
+                                width={p.width * scaleNum}
+                                height={p.height * scaleNum}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+        </>
     );
 };
