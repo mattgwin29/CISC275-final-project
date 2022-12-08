@@ -6,6 +6,7 @@ import { ItemTypes } from "./constants";
 import { Button } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
 import { TupleType } from "typescript";
+import { getImageSize } from "react-image-size";
 
 const style: CSSProperties = {
     height: "35rem",
@@ -83,26 +84,35 @@ export const Dropper: FC = () => {
             image: "./Assets/Images/" + s + ".png"
         })
     );
-    ////////
-    function getImageDimensions(filepath: string): number[] {
+    ///////
+    async function getImageDimensions(filepath: string) {
         console.log(filepath);
+        /*console.log(filepath);
         const img = new Image();
         img.src = filepath;
         const h = img.height;
         const w = img.width;
-        return [h, w];
+        return [h, w];*/
+        console.log("))))))))))");
+        const { width, height } = await getImageSize(filepath);
+        console.log("Width -> " + width);
+        console.log("Height -> " + height);
     }
 
-    function getImageDimensionsById(id: string): number[] {
+    /*function getImageDimensionsById(id: string): number[] {
         console.log(id + ".png");
         const img = document.getElementById(id);
         //or however you get a handle to the IMG
         const w = img != null ? img.clientWidth : 0;
         const h = img != null ? img.clientHeight : 0;
         return [h, w];
-    }
-    pieces.forEach((p) => console.log(getImageDimensionsById(p.id))); //this works, but only after they exist
-    //pieces.forEach((p) => console.log(getImageDimensions(p.image)));
+    }*/
+    //pieces.forEach((p) => console.log(getImageDimensionsById(p.id))); //this works, but only after they exist
+    pieces.forEach((p) => console.log(getImageDimensions(p.image)));
+
+    //const sizeOf = require("image-size");
+    //const dimensions = sizeOf("./Assets/N.png");
+    //console.log(dimensions.width, dimensions.height);
 
     //////////
     const solutions: string[] = ["3x20", "4x15", "5x12", "6x10"];
