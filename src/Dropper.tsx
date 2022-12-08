@@ -9,8 +9,8 @@ import { TupleType } from "typescript";
 import { getImageSize } from "react-image-size";
 
 const style: CSSProperties = {
-    height: "35rem",
-    width: "80%",
+    height: "30rem",
+    width: "70%",
     color: "white",
     padding: "1rem",
     textAlign: "center",
@@ -20,8 +20,8 @@ const style: CSSProperties = {
     backgroundColor: "black",
     // paddingRight: "30px",
     // paddingLeft: "30px",
-    marginLeft: "10%",
-    marginRight: "10%",
+    marginLeft: "15%",
+    marginRight: "15%",
     marginBottom: "10%",
     borderStyle: "solid",
     borderWidth: "10px",
@@ -63,13 +63,29 @@ export const Dropper: FC = () => {
         "Z"
     ];
 
+    const hardcoded_locs: Record<string, number[]> = {
+        //[top,left]
+        F: [100, 70],
+        I: [220, 30],
+        L: [300, 100],
+        N: [500, 50],
+        P: [540, 325],
+        T: [540, 525],
+        U: [540, 725],
+        V: [540, 925],
+        W: [100, 1300],
+        X: [250, 1300],
+        Y: [400, 1300],
+        Z: [550, 1150]
+    };
+
     const pageWidth = document.documentElement.scrollWidth;
     const pageHeight = document.documentElement.scrollHeight;
     console.log(pageWidth);
     console.log(pageHeight);
 
-    const xLoc = 0;
-    const yLoc = 100;
+    //const xLoc = 0;
+    //const yLoc = 100;
 
     const pieces: Piece[] = p.map(
         (s: string): Piece => ({
@@ -77,44 +93,14 @@ export const Dropper: FC = () => {
             angle: 0,
             width: 100,
             height: 100,
-            top: yLoc,
-            left: xLoc,
+            top: hardcoded_locs[s][0], //top
+            left: hardcoded_locs[s][1], //left
             onBoard: false,
             reflected: false,
             image: "./Assets/Images/" + s + ".png"
         })
     );
-    ///////
-    async function getImageDimensions(filepath: string) {
-        console.log(filepath);
-        /*console.log(filepath);
-        const img = new Image();
-        img.src = filepath;
-        const h = img.height;
-        const w = img.width;
-        return [h, w];*/
-        console.log("))))))))))");
-        const { width, height } = await getImageSize(filepath);
-        console.log("Width -> " + width);
-        console.log("Height -> " + height);
-    }
 
-    /*function getImageDimensionsById(id: string): number[] {
-        console.log(id + ".png");
-        const img = document.getElementById(id);
-        //or however you get a handle to the IMG
-        const w = img != null ? img.clientWidth : 0;
-        const h = img != null ? img.clientHeight : 0;
-        return [h, w];
-    }*/
-    //pieces.forEach((p) => console.log(getImageDimensionsById(p.id))); //this works, but only after they exist
-    pieces.forEach((p) => console.log(getImageDimensions(p.image)));
-
-    //const sizeOf = require("image-size");
-    //const dimensions = sizeOf("./Assets/N.png");
-    //console.log(dimensions.width, dimensions.height);
-
-    //////////
     const solutions: string[] = ["3x20", "4x15", "5x12", "6x10"];
 
     const [solutionImage, setSolutionImage] = useState<string>(
@@ -136,8 +122,8 @@ export const Dropper: FC = () => {
         const picBank: Piece[] = newBank.map(
             (p: Piece): Piece =>
                 p.reflected
-                    ? { ...p, image: "./Assets/Images/" + p.id + ".png" }
-                    : { ...p, image: "./Assets/Images/" + p.id + "2.png" }
+                    ? { ...p, image: "./Assets/Images/" + p.id + "2.png" }
+                    : { ...p, image: "./Assets/Images/" + p.id + ".png" }
         );
         setPieceBank(picBank);
     }
@@ -190,8 +176,8 @@ export const Dropper: FC = () => {
         const newPieces = PieceBank.map(
             (piece: Piece): Piece => ({
                 ...piece,
-                top: 440,
-                left: 220,
+                top: hardcoded_locs[piece.id][0],
+                left: hardcoded_locs[piece.id][1],
                 angle: 0
             })
         );
