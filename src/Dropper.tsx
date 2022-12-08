@@ -165,8 +165,9 @@ export const Dropper: FC = () => {
             })
         );
         setPieceBank(newPieces);
+        setScale("100");
     }
-    //Scale of Pieces because yeah scale exists wow amazing here is scale
+    //Scale of Pieces because yeah scale exists wow amazing here is scale I can imagine the usefulness
     const [scale, setScale] = useState<string>("100");
     const scaleNum = parseInt(scale) / 100 || 0;
     function updateScale(event: React.ChangeEvent<HTMLInputElement>) {
