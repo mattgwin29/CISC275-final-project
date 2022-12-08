@@ -179,6 +179,9 @@ export const Dropper: FC = () => {
                 top: hardcoded_locs[piece.id][0],
                 left: hardcoded_locs[piece.id][1],
                 angle: 0
+                reflected: false,
+                image: "./Assets/Images/" + piece.id + ".png"
+
             })
         );
         setPieceBank(newPieces);
