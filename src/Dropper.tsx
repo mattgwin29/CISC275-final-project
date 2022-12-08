@@ -3,7 +3,7 @@ import type { CSSProperties, FC } from "react";
 import { useDrop, XYCoord } from "react-dnd";
 import Pic from "./Pic";
 import { ItemTypes } from "./constants";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
 
 const style: CSSProperties = {
@@ -24,6 +24,10 @@ const style: CSSProperties = {
     borderStyle: "solid",
     borderWidth: "10px",
     borderColor: "red"
+};
+const styleI: CSSProperties = {
+    height: "100px",
+    width: "100px"
 };
 /*
 addToBank("F");
@@ -127,7 +131,11 @@ export const Dropper: FC = () => {
     }
 
     const [selected, setSelected] = useState<string>("Z");
-
+    const [scale, setScale] = useState<string>("100");
+    const scaleNum = parseInt(scale) / 100 || 0;
+    function updateScale(event: React.ChangeEvent<HTMLInputElement>) {
+        setScale(event.target.value);
+    }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function rotatePiece(rotId: string, rotation: number) {
         const newBank: Piece[] = PieceBank.map(
@@ -213,6 +221,16 @@ export const Dropper: FC = () => {
             <Button onClick={() => reflectPiece(selected)}>
                 Reflect Last Piece
             </Button>
+            <div style={styleI}>
+                <Form.Group controlId="scaleTime">
+                    <Form.Label>Scale %</Form.Label>
+                    <Form.Control
+                        type="number"
+                        value={scale}
+                        onChange={updateScale}
+                    />
+                </Form.Group>
+            </div>
             <div>
                 {" "}
                 <img src={require(`${solutionImage}`)} />
@@ -226,8 +244,8 @@ export const Dropper: FC = () => {
                             left={p.left}
                             image={p.image}
                             angle={p.angle}
-                            width={p.width}
-                            height={p.height}
+                            width={p.width * scaleNum}
+                            height={p.height * scaleNum}
                         />
                     </div>
                 );
