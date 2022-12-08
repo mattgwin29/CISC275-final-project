@@ -5,8 +5,6 @@ import Pic from "./Pic";
 import { ItemTypes } from "./constants";
 import { Button } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
-import { TupleType } from "typescript";
-import { getImageSize } from "react-image-size";
 
 const style: CSSProperties = {
     height: "30rem",
