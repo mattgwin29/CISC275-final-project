@@ -11,9 +11,7 @@ function App() {
     return (
         <div className="App">
             <DndProvider backend={HTML5Backend}>
-                <p>Zachary England</p>
-                <p>Blair Felker</p>
-                <p>Matt Gwin</p>
+                <p>Zachary England, Blair Felker, Matt Gwin</p>
                 <Dropper />
                 <br></br>
             </DndProvider>

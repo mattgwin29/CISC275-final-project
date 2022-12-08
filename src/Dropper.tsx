@@ -5,10 +5,12 @@ import Pic from "./Pic";
 import { ItemTypes } from "./constants";
 import { Button } from "react-bootstrap";
 import { Piece } from "./interfaces/piece";
+import { TupleType } from "typescript";
+import { getImageSize } from "react-image-size";
 
 const style: CSSProperties = {
-    height: "35rem",
-    width: "80%",
+    height: "30rem",
+    width: "70%",
     color: "white",
     padding: "1rem",
     textAlign: "center",
@@ -18,8 +20,8 @@ const style: CSSProperties = {
     backgroundColor: "black",
     // paddingRight: "30px",
     // paddingLeft: "30px",
-    marginLeft: "10%",
-    marginRight: "10%",
+    marginLeft: "15%",
+    marginRight: "15%",
     marginBottom: "10%",
     borderStyle: "solid",
     borderWidth: "10px",
@@ -61,14 +63,38 @@ export const Dropper: FC = () => {
         "Z"
     ];
 
+    const hardcoded_locs: Record<string, number[]> = {
+        //[top,left]
+        F: [100, 70],
+        I: [220, 30],
+        L: [300, 100],
+        N: [500, 50],
+        P: [540, 325],
+        T: [540, 525],
+        U: [540, 725],
+        V: [540, 925],
+        W: [100, 1300],
+        X: [250, 1300],
+        Y: [400, 1300],
+        Z: [550, 1150]
+    };
+
+    const pageWidth = document.documentElement.scrollWidth;
+    const pageHeight = document.documentElement.scrollHeight;
+    console.log(pageWidth);
+    console.log(pageHeight);
+
+    //const xLoc = 0;
+    //const yLoc = 100;
+
     const pieces: Piece[] = p.map(
         (s: string): Piece => ({
             id: s,
             angle: 0,
             width: 100,
             height: 100,
-            top: 400,
-            left: 200,
+            top: hardcoded_locs[s][0], //top
+            left: hardcoded_locs[s][1], //left
             onBoard: false,
             reflected: false,
             image: "./Assets/Images/" + s + ".png"
@@ -150,11 +176,12 @@ export const Dropper: FC = () => {
         const newPieces = PieceBank.map(
             (piece: Piece): Piece => ({
                 ...piece,
-                top: 440,
-                left: 220,
-                angle: 0,
+                top: hardcoded_locs[piece.id][0],
+                left: hardcoded_locs[piece.id][1],
+                angle: 0
                 reflected: false,
                 image: "./Assets/Images/" + piece.id + ".png"
+
             })
         );
         setPieceBank(newPieces);
@@ -177,6 +204,7 @@ export const Dropper: FC = () => {
             canDrop: monitor.canDrop()
         })
     });
+
     return (
         <div ref={drop} style={{ ...style }} id="dustbin" data-testid="dustbin">
             <header>Current Puzzle = {solutionImage.substring(19, 23)}</header>
@@ -194,13 +222,15 @@ export const Dropper: FC = () => {
             </div>
             {PieceBank.map((p: Piece) => {
                 return (
-                    <div key={p.id} data-testid="pieces">
+                    <div key={p.id} data-testid="pieces" id={p.id}>
                         <Pic
                             id={p.id}
                             top={p.top}
                             left={p.left}
                             image={p.image}
                             angle={p.angle}
+                            width={p.width}
+                            height={p.height}
                         />
                     </div>
                 );
