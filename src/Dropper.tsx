@@ -115,7 +115,6 @@ export const Dropper: FC = () => {
     }
 
     const [PieceBank, setPieceBank] = useState<Piece[]>(pieces);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function reflectPiece(reflId: string) {
         const newBank: Piece[] = PieceBank.map(
             (p: Piece): Piece =>
@@ -135,14 +134,6 @@ export const Dropper: FC = () => {
     const scaleNum = parseInt(scale) / 100 || 0;
     function updateScale(event: React.ChangeEvent<HTMLInputElement>) {
         setScale(event.target.value);
-    }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    function rotatePiece(rotId: string, rotation: number) {
-        const newBank: Piece[] = PieceBank.map(
-            (p: Piece): Piece =>
-                p.id === rotId ? { ...p, angle: rotation } : p
-        );
-        setPieceBank(newBank);
     }
     //Add a piece to the set of total pieces
     /*
@@ -190,6 +181,7 @@ export const Dropper: FC = () => {
             })
         );
         setPieceBank(newPieces);
+        setScale("100");
     }
 
     const [, drop] = useDrop({
